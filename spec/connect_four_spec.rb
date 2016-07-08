@@ -47,6 +47,9 @@ describe ConnectFour do
 
   let(:game_fd){ConnectFour.new(board_falling_diagonal)}
 
+  let(:board_full){Board.new(Array.new(7){Array.new(6){Piece.new("R")}})}
+
+  let(:game_full){ConnectFour.new(board_full)}
 
   describe "#initialize" do
     it "creates a new ConnectFour object" do
@@ -91,8 +94,13 @@ describe ConnectFour do
     it "returns false on empty" do
       expect(game.full_board?).to be false
     end
+
     it "returns false on partial board" do
       expect(game_horizontal.full_board?).to be false
+    end
+
+    it "returns true on full board" do
+      expect(game_full.full_board?).to be true
     end
 
 end

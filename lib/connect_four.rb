@@ -80,23 +80,25 @@ class ConnectFour
   #   end
   # end
 
-  def check_win(arrays)
-    arrays.each do |array|
-      counter_r = 0
-      counter_b = 0
-      array.each do |space|
-        if space.empty?
-          counter = 0
-        elsif space.color == "R"
-          counter_r += 1
-        elsif space.color == "B"
-          counter_b += 1
+  private
+
+    def check_win(arrays)
+      arrays.each do |array|
+        counter_r = 0
+        counter_b = 0
+        array.each do |space|
+          if space.empty?
+            counter = 0
+          elsif space.color == "R"
+            counter_r += 1
+          elsif space.color == "B"
+            counter_b += 1
+          end
         end
+        return true if (counter_r == 4 || counter_b == 4)
       end
-      return true if (counter_r == 4 || counter_b == 4)
+      return false
     end
-    return false
-  end
 
 
 end
